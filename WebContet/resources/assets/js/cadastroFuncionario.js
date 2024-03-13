@@ -6,17 +6,6 @@ const idFuncionarios = params.get("id");
 
 
 
-botaoDesativa.addEventListener('click', () => {
-	elemento.classList.add('animar-sair');
-	elemento.classList.remove('animar-entrar');
-
-});
-
-botaoAtiva.addEventListener('click', () => {
-	elemento.classList.add('animar-entrar');
-	elemento.classList.remove('animar-sair');
-});
-
 function ativaSenhas() {
 
 	$("#senha, #confirmarSenha").removeAttr("disabled")
@@ -191,7 +180,9 @@ var cargo = []
 var lojistas = []
 
 $(document).ready(function() {
-
+	
+	$('#nome-user').append($('#input-name').val())
+	
 	$.ajax({
 		url: url_base + '/cargos',
 		type: "GET",
@@ -319,4 +310,15 @@ $("#form-funcionario").on("submit", function(e) {
 	requerimentoSenha()
 
 
+});
+
+botaoDesativa.addEventListener('click', () => {
+	elemento.classList.add('animar-sair');
+	elemento.classList.remove('animar-entrar');
+
+});
+
+botaoAtiva.addEventListener('click', () => {
+	elemento.classList.add('animar-entrar');
+	elemento.classList.remove('animar-sair');
 });

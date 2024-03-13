@@ -26,6 +26,32 @@ public class FuncionariosController {
 		return "funcionarios/cadastroDeFuncionario";
 	}
 	
+	@RequestMapping(value = { "atosRegulatorios" }, method = RequestMethod.GET)
+	public String atosRegulatorios(HttpSession session, Model model) throws Exception {
+		/*if (session.getAttribute("loginFunc") == null) {
+			return "login/loginFuncionario";
+		}
+		/*
+		 * String perfil = session.getAttribute("perfil").toString();
+		 * 
+		 * if (!LoginUtils.acessoAdmin(perfil)) { return "login/acesssoNegado"; }
+		 */
+		return "funcionarios/atosRegulatorios";
+	}
+	
+	@RequestMapping(value = { "ato-regulatorio" }, method = RequestMethod.GET)
+	public String atoRegulatorio(HttpSession session, Model model) throws Exception {
+		/*if (session.getAttribute("loginFunc") == null) {
+			return "login/loginFuncionario";
+		}
+		/*
+		 * String perfil = session.getAttribute("perfil").toString();
+		 * 
+		 * if (!LoginUtils.acessoAdmin(perfil)) { return "login/acesssoNegado"; }
+		 */
+		return "funcionarios/atoRegulatorio";
+	}
+	
 	@RequestMapping(value = { "editarFuncionario" }, method = RequestMethod.GET)
 	public String editarFuncionario(HttpSession session, Model model) throws Exception {
 //		if (session.getAttribute("loginFunc") == null) {

@@ -54,7 +54,7 @@ String contextPath = request.getContextPath();
 	crossorigin="anonymous"></script>
 <link rel="stylesheet"
 	href="<%=contextPath%>/resources/assets/css/style.css" />
-	<!-- Animation-css 
+<!-- Animation-css 
 	<link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -70,49 +70,19 @@ String contextPath = request.getContextPath();
 			<div class="rect4"></div>
 		</div>
 	</div>
-	<header>
-		<section id="modalMenu" class="abracaMenu modalMenu">
-			<img class="logoSumare animate__animated animate__bounceIn"
-				src="<%=contextPath%>/resources/assets/img/logoBranco.png"
-				alt="Logo Prefeitura Caxias do Sul" />
-			<button id="teste" type="button" class="btn botaoDesativaMenu "><i class="fa-solid fa-arrow-right" style="color: #ffffff;"></i></button>
-			<hr />
-			<p>
-				<i class="fa-solid fa-user me-2" style="width: 28px;"></i> <span>${funcionario.nome}</span>
-			</p>
-			<hr />
-			<nav class="nav-sidebar">
-
-				
-			         <a href="listarCargos" class="mb-1"><i class="fa-regular fa-address-card"></i> 
-				<span>Cargos</span> 
-			    </a> <a href="listarCategoria" class="mb-1"> <i class="fa-solid fa-clipboard"></i> 
-				<span>Categorias</span>
-				</a> <a href="listarSubCategoria" class="mb-1"> <i class="fa-solid fa-paste"></i>
-				<span>Sub-Categoria</span>
-				</a> <a href="listarLojista" class="mb-1"> <i class="fa-solid fa-shop"></i> 
-				<span>Lojistas</span>
-				</a> <a href="listarColaboradores" class="mb-1"> <i class="fa-regular fa-handshake"></i>
-				<span>Colaboradores</span>
-				</a> <a href="listarFuncionarios" class="mb-1"> <i class="fa-solid fa-user-group"></i> 
-				<span>Funcionários</span>
-				</a> <a href="listarProduto" class="mb-1"> <i class="fa-solid fa-barcode"></i> 
-				<span>Produtos</span>
-				</a> <a href="logoff" id="sair"> <i class="fa-solid fa-right-from-bracket"></i> 
-				<span>Sair</span>
-				</a>
-				
-			</nav>
-		</section>
+	<header id="menu">
+		
 	</header>
-	
+
 	<button type="button" class="btn botaoAtivaMenu ">
-	<i class="fa-solid fa-arrow-left mover-left"></i></button>
+		<i class="fa-solid fa-arrow-left mover-left"></i>
+	</button>
 	<main class="py-4 container-res">
+	<input type="text" id='input-name' hidden value={funcionario.nome}>
 		<section class="mb-5">
 			<div class="card">
 				<div class="card-body title">
-					<i class="fa-solid fa-user-pen fa-lg"></i>  <span id="tituloPagina">Cadastro
+					<i class="fa-solid fa-user-pen fa-lg"></i> <span id="tituloPagina">Cadastro
 						de Funcionários</span>
 				</div>
 			</div>
@@ -120,34 +90,37 @@ String contextPath = request.getContextPath();
 		<section class="pt-4">
 			<form class='formClass' id="form-funcionario"
 				class="card form p-5 col-8 mx-auto animate__animated animate__bounceInUp">
-				<h1 id="tituloForm" class="text-left mb-5">Cadastrar Funcionário</h1>
+				<h1 id="tituloForm" class="text-left mb-5">Cadastrar
+					Funcionário</h1>
 				<input type="text" id="usuarioCadastro" hidden
 					value="${funcionario.idUsuario}" />
 
 				<div class="row mb-2">
 					<div class="col-md-6">
-						<label for="nome" class="form-label">Nome:<span class="red">*</span></label> <input required
-							autocomplete="off" type="text" id="nome" name="nome"
-							class="form-control inputForm" maxlength="255" />
+						<label for="nome" class="form-label">Nome:<span
+							class="red">*</span></label> <input required autocomplete="off"
+							type="text" id="nome" name="nome" class="form-control inputForm"
+							maxlength="255" />
 					</div>
 					<div class="col-md-6">
-						<label for="lojista" class="form-label">Lojista:<span class="red">*</span></label> <select
-							id="lojista" required name="lojista"
-							class="form-select inputForm" >
+						<label for="lojista" class="form-label">Lojista:<span
+							class="red">*</span></label> <select id="lojista" required name="lojista"
+							class="form-select inputForm">
 							<option></option>
-							</select>
+						</select>
 					</div>
 				</div>
 
 				<div class="row mb-2">
 					<div class="col-md-6">
-						<label for="email" class="form-label">Email:<span class="red">*</span></label> <input
-							type="email" id="email" required autocomplete="off" name="email"
-							class="form-control inputForm" maxlength="255" />
+						<label for="email" class="form-label">Email:<span
+							class="red">*</span></label> <input type="email" id="email" required
+							autocomplete="off" name="email" class="form-control inputForm"
+							maxlength="255" />
 					</div>
 					<div class="col-md-6">
-						<label for="cpf" class="form-label">CPF:<span class="red">*</span></label> <input
-							type="text" id="cpf" required autocomplete="off" name="cpf"
+						<label for="cpf" class="form-label">CPF:<span class="red">*</span></label>
+						<input type="text" id="cpf" required autocomplete="off" name="cpf"
 							class="form-control inputForm" data-mask="000.000.000-00"
 							maxlength="11" />
 					</div>
@@ -156,72 +129,74 @@ String contextPath = request.getContextPath();
 
 				<div class="row mb-2">
 					<div class="col-md-6">
-						<label for="telefone" class="form-label">Telefone:<span class="red">*</span></label> <input
-							type="text" id="telefone" required autocomplete="off" name="telefone"
-							class="form-control inputForm" data-mask="(00)00000-0000"
-							maxlength="11" />
+						<label for="telefone" class="form-label">Telefone:<span
+							class="red">*</span></label> <input type="text" id="telefone" required
+							autocomplete="off" name="telefone" class="form-control inputForm"
+							data-mask="(00)00000-0000" maxlength="11" />
 					</div>
 					<div class="col-md-6">
-						<label for="cargo" class="form-label">Cargo:<span class="red">*</span></label> <select
-							id="cargo" required autocomplete="off"
-							class="form-select inputForm">
+						<label for="cargo" class="form-label">Cargo:<span
+							class="red">*</span></label> <select id="cargo" required
+							autocomplete="off" class="form-select inputForm">
 							<option></option>
 						</select>
 					</div>
 				</div>
-				
+
 				<div class="row mb-2">
 					<div id="escondeSenha" class="col-md-6">
-						<label id="labelSenha" for="senha" class="form-label animate__animated">Senha:<span class="red">*</span></label> <input
-							type="text" id="senha" required autocomplete="off" name="senha"
-							class="form-control inputForm" maxlength="255"  />
+						<label id="labelSenha" for="senha"
+							class="form-label animate__animated">Senha:<span
+							class="red">*</span></label> <input type="text" id="senha" required
+							autocomplete="off" name="senha" class="form-control inputForm"
+							maxlength="255" />
 					</div>
 					<div id="escondeSenha" class="col-md-6">
-						<label id="confirmarSenhaLabel" for="confirmarSenha" class="form-label">Confirmar Senha:<span class="red">*</span></label> <input
-							type="text" id="confirmarSenha" required autocomplete="off" name="confirmarSenha"
-							class="form-control inputForm" maxlength="255" />
+						<label id="confirmarSenhaLabel" for="confirmarSenha"
+							class="form-label">Confirmar Senha:<span class="red">*</span></label>
+						<input type="text" id="confirmarSenha" required autocomplete="off"
+							name="confirmarSenha" class="form-control inputForm"
+							maxlength="255" />
 					</div>
-					</div>
-					
-				<div class="row mb-2 none" id="alteraSen" >
+				</div>
+
+				<div class="row mb-2 none" id="alteraSen">
 					<div class="col-md">
 						<div class="form-control border-0 p-0">
-							<button onclick="ativaSenhas()" type="button" class="btn btn-primary">Alterar Senha</button>
+							<button onclick="ativaSenhas()" type="button"
+								class="btn btn-primary">Alterar Senha</button>
 						</div>
 					</div>
 				</div>
-				
-				
-				  <div class="tab-wrap">
-				
-				    <input type="radio" id="tab1" name="tabGroup1" class="tab" checked>
-				    <label for="tab1">Aba1 </label>
-				
-				    <input type="radio" id="tab2" name="tabGroup1" class="tab">
-				    <label for="tab2">Aba 2</label>
-				
-				    <input type="radio" id="tab3" name="tabGroup1" class="tab">
-				    <label for="tab3">Aba 4</label>
-				
-				    <div class="tab__content">
-				      <h3>ABA 1 Titulo</h3>
-				       <p>ABA 1 corpo de texto</p>
-				    </div>
-				
-				    <div class="tab__content">
-				      <h3>ABA 2 Titulo</h3>
-				       <p>ABA 2  corpo de texto</p>
-				    </div>
-				
-				    <div class="tab__content">
-				      <h3>ABA 3 Titulo</h3>
-				      
-				      <p>ABA 3  corpo de texto</p>
-				    </div>
-				
-				  </div>
 
-  
+
+				<div class="tab-wrap">
+
+					<input type="radio" id="tab1" name="tabGroup1" class="tab" checked>
+					<label for="tab1">Aba1 </label> <input type="radio" id="tab2"
+						name="tabGroup1" class="tab"> <label for="tab2">Aba
+						2</label> <input type="radio" id="tab3" name="tabGroup1" class="tab">
+					<label for="tab3">Aba 4</label>
+
+					<div class="tab__content">
+						<h3>ABA 1 Titulo</h3>
+						<p>ABA 1 corpo de texto</p>
+					</div>
+
+					<div class="tab__content">
+						<h3>ABA 2 Titulo</h3>
+						<p>ABA 2 corpo de texto</p>
+					</div>
+
+					<div class="tab__content">
+						<h3>ABA 3 Titulo</h3>
+
+						<p>ABA 3 corpo de texto</p>
+					</div>
+
+				</div>
+
+
 
 				<div class="row mb-2">
 					<div class="col-md-12 text-center">
@@ -274,6 +249,6 @@ String contextPath = request.getContextPath();
 		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 	<script src="<%=contextPath%>/resources/assets/js/comum.js"></script>
 	<script
-		src="<%=contextPath%>/resources//assets/js/cadastroFuncionario.js"></script>
+		src="<%=contextPath%>/resources/assets/js/cadastroFuncionario.js"></script>
 </body>
 </html>
